@@ -1,5 +1,10 @@
 # app/controllers/users_controller.rb
 class UsersController < ApplicationController
+    
+    before do
+        redirect '/login' unless logged_in?
+      end
+
     get '/signup' do
       erb :'users/signup'
     end
