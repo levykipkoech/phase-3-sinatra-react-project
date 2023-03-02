@@ -1,9 +1,19 @@
 class ApplicationController < Sinatra::Base
-  set :default_content_type, 'application/json'
   
-  # Add your routes here
-  get "/" do
-    { message: "Good luck with your project!" }.to_json
-  end
+    get '/memes/new' do
+      erb :'memes/new'
+    end
+    
+    post '/memes' do
+      @meme = Meme.new(params[:meme])
+      
+      if @meme.save
+        redirect '/memes'
+      else
+        erb :'memes/new'
+      end
+    end
+  
+  
 
 end

@@ -1,24 +1,38 @@
 # app/controllers/users_controller.rb
 class UsersController < ApplicationController
-    def new
-      @user = User.new
+    get '/signup' do
+      erb :'users/signup'
     end
-  
-    def create
-      @user = User.new(user_params)
-  
+    
+    post '/signup' do
+      @user = User.new(params[:user])
+      
       if @user.save
-        sign_in @user
-        redirect_to memes_path, notice: "Signed up successfully."
+        session[:user_id] = @user.id
+        redirect '/memes'
       else
-        render :new
+        erb :'users/signup'
       end
     end
-  
-    private
-  
-    def user_params
-      params.require(:user).permit(:email, :password, :password_confirmation, :name, :date_of_birth)
+    
+    get '/login' do
+      erb :'users/login'
+    end
+    
+    post '/login' do
+      @user = User.find_by(username: params[:username])
+      
+      if @user && @user.authenticate(params[:password])
+        session[:user_id] = @user.id
+        redirect '/memes'
+      else
+        erb :'users/login'
+      end
+    end
+    
+    get '/logout' do
+      session.clear
+      redirect '/'
     end
   end
   
