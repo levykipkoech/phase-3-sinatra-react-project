@@ -4,10 +4,12 @@ class CreateMemes < ActiveRecord::Migration[6.1]
       t.string :title, null: false
       t.text :description
       t.string :url, null: false
-      t.references :user, null: false, foreign_key: true
-      t.string :date_published
+      t.references :user, null: false
+      t.datetime :due
+      t.datetime :createdAt, null: false
+      t.integer :status, null: false, default: 0
 
-      t.timestamps
+      
     end
   end
 end
