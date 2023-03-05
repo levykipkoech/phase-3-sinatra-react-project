@@ -1,13 +1,13 @@
 class CreateMemes < ActiveRecord::Migration[6.1]
   def change
     create_table :memes do |t|
-      t.string :title, null: false
+      t.string :title 
       t.text :description
-      t.string :url, null: false
-      t.references :user, null: false
+      t.string :url 
+      t.references :user 
       t.datetime :due
-      t.datetime :createdAt, null: false
-      t.integer :status, null: false, default: 0
+      t.datetime :createdAt 
+      t.integer :status, default: 0
 
       
     end

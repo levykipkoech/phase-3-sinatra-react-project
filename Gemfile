@@ -12,6 +12,10 @@ gem 'rake', '~> 13.0', '>= 13.0.6'
 
 gem 'rack-cors', '~> 2.0'
 
+# gem 'paperclip', '~> 6.1'
+
+#gem 'active_storage_validations', '~> 1.0', '>= 1.0.3'
+
 gem 'sqlite3', '~> 1.6', '>= 1.6.1'
 
 gem 'sinatra-activerecord', '~> 2.0', '>= 2.0.26'
