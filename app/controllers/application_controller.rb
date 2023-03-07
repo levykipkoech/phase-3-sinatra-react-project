@@ -3,9 +3,10 @@ class ApplicationController < Sinatra::Base
 configure do
   enable :cross_origin
 end
-
 before do
-  response.headers['Access-Control-Allow-Origin'] = 'https://tourmaline-taffy-23a213.netlify.app'
+  headers['Access-Control-Allow-Origin'] = 'https://tourmaline-taffy-23a213.netlify.app'
+  headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE, OPTIONS'
+  headers['Access-Control-Allow-Headers'] = 'accept, content-type'
 end
 
 options "*" do
