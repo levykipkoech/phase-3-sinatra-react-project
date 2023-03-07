@@ -1,19 +1,20 @@
 class ApplicationController < Sinatra::Base
 
-  configure do
-    enable :cross_origin
-  end
-  
-  before do
-    response.headers['Access-Control-Allow-Origin'] = '*'
-    response.headers["Access-Control-Allow-Methods"] = "GET, POST, PUT, DELETE, OPTIONS"
-    response.headers["Access-Control-Allow-Headers"] = "Authorization, Content-Type, Accept, X-User-Email, X-Auth-Token"
-  end
-  
-  options "*" do
-    response.headers["Allow"] = "GET, PUT, POST, DELETE, OPTIONS"
-    200
-  end
+configure do
+  enable :cross_origin
+end
+
+before do
+  response.headers['Access-Control-Allow-Origin'] = 'https://tourmaline-taffy-23a213.netlify.app'
+end
+
+options "*" do
+  response.headers["Allow"] = "GET, PUT, POST, DELETE, OPTIONS"
+  response.headers["Access-Control-Allow-Headers"] = "Authorization, Content-Type, Accept, X-User-Email, X-Auth-Token"
+  response.headers["Access-Control-Allow-Origin"] = "https://tourmaline-taffy-23a213.netlify.app"
+  200
+end
+
   
   
     def json_response(code: 200, data: nil)
