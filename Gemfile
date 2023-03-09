@@ -12,8 +12,8 @@ gem 'sinatra-cross_origin', '~> 0.4.0'
 gem 'activerecord', '~> 7.0', '>= 7.0.4.2'
 
 gem 'rake', '~> 13.0', '>= 13.0.6'
-
 gem 'rack-cors', '~> 2.0'
+
 
 # gem 'paperclip', '~> 6.1'
 
